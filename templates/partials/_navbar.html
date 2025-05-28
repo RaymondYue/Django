@@ -21,15 +21,15 @@
           <ul class="navbar-nav">
             <li {% if request.path == '/' %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
               {% comment %} fix link later {% endcomment %}
-              <a class="nav-link" href="pages:index.html">Home</a>
+              <a class="nav-link" href={% url "pages:index" %}>Home</a>
             </li>
             <li {% if 'about' in request.path %} class="nav-item active mr-3" {% else %} class="nav-item mr-3" {% endif %}>
               {% comment %} fix link later {% endcomment %}
-              <a class="nav-link" href="pages:about.html">About</a>
+              <a class="nav-link" href={% url "pages:about" %}>About</a>
             </li>
             <li class="nav-item mr-3">
               {% comment %} fix link later {% endcomment %}
-              <a class="nav-link" href="listings.html">Featured Listings</a>
+              <a class="nav-link" href={% url "listings:listings" %}>Featured Listings</a>
             </li>
           </ul>
 
