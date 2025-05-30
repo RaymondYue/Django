@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "debug_toolbar",
+    "django.contrib.humanize",
     'pages.apps.PagesConfig',
     'realtors.apps.RealtorsConfig',
     'listings.apps.ListingsConfig',
