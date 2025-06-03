@@ -15,7 +15,7 @@
             </p>
             <div class="search">
                 {% comment %} fix link {% endcomment %}
-              <form action="search.html">
+              <form action={% url 'listings:search' %}>
                 <!-- Form Row 1 -->
                 <div class="form-row">
                   <div class="col-md-4 mb-3">
@@ -44,8 +44,16 @@
                       <option selected="true" disabled="disabled">
                         District (All)
                       </option>
-                      <option value="IL">Islands</option>
-                      <option value="KT">Kwai Tsing</option>
+
+{% comment %} {% for key, value in district_choices.items %}
+    <option value="{{ key }}">{{ value }}</option>
+{% endfor %} {% endcomment %}
+
+
+                      {% for key, value in district_choices.items %}
+                      <option value="{{key}}">{{value}}</option>
+                      {% endfor %}
+                      {% comment %} <option value="KT">Kwai Tsing</option>
                       <option value="NR">North</option>
                       <option value="SK">Sai Kung</option>
                       <option value="ST">Sha Tin</option>
@@ -61,7 +69,7 @@
                       <option value="CW">Central & Western</option>
                       <option value="ER">Eastern</option>
                       <option value="SR">Southern</option>
-                      <option value="WC">Wan Chai</option>
+                      <option value="WC">Wan Chai</option> {% endcomment %}
                     </select>
                   </div>
                 </div>
@@ -73,7 +81,11 @@
                       <option selected="true" disabled="disabled">
                         Bedrooms (All)
                       </option>
-                      <option value="1">1</option>
+                      {% for key, value in bedroom_choices.items %}
+                      <option value="{{key}}">{{value}}</option>
+                      {% endfor %}
+
+                      {% comment %} <option value="1">1</option>
                       <option value="2">2</option>
                       <option value="3">3</option>
                       <option value="4">4</option>
@@ -82,7 +94,7 @@
                       <option value="7">7</option>
                       <option value="8">8</option>
                       <option value="9">9</option>
-                      <option value="10">10</option>
+                      <option value="10">10</option> {% endcomment %}
                     </select>
                   </div>
                   <div class="col-md-6 mb-3">
@@ -90,7 +102,11 @@
                       <option selected="true" disabled="disabled">
                         Max Price (Any)
                       </option>
-                      <option value="1000000">$1,000,000</option>
+                       {% for key, value in price_choices.items %}
+                      <option value="{{key}}">{{value}}</option>
+                      {% endfor %}
+
+                      {% comment %} <option value="1000000">$1,000,000</option>
                       <option value="2000000">$2,000,000</option>
                       <option value="3000000">$3,000,000</option>
                       <option value="4000000">$4,000,000</option>
@@ -99,7 +115,7 @@
                       <option value="7000000">$7,000,000</option>
                       <option value="8000000">$8,000,000</option>
                       <option value="9000000">$9,000,000</option>
-                      <option value="10000000">$10M+</option>
+                      <option value="10000000">$10M+</option> {% endcomment %}
                     </select>
                   </div>
                 </div>

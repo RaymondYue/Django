@@ -3,12 +3,14 @@ from django.shortcuts import render
 # from django.http import HttpResponse
 from listings.models import Listings
 from realtors.models import Realtor
+from pages.choices import bedroom_choices, price_choices, district_choices
 
 # Create your views here.
 def index(request):
     # return HttpResponse ("<h1>Hello World<h1>") 
     listings = Listings.objects.order_by('-list_date').filter(is_published=True)[:3]
-    context = {"listings" : listings}
+    context = {"listings" : listings, "bedroom_choices": bedroom_choices
+               , "price_choices": price_choices, "district_choices": district_choices}
     return render(request, 'pages/index.html', context)
 
 def about(request):
